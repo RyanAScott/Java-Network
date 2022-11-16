@@ -22,11 +22,10 @@ public class Packet {
     - Origin (String o)
     - Hopcount (int hc)
     */ 
-    Packet(String m, String d, String o, int hc){
-        Message = m;
-        Destination = d;
-        Origin = o;
-        HopCount = hc;
+    Packet(String Message, String Destination, String Origin){
+        this.Message = Message;
+        this.Destination = Destination;
+        this.Origin = Origin;
     }// main packet constructor
 
     /* Packet Cloner Constuctor:
@@ -43,11 +42,5 @@ public class Packet {
         Origin = p.Origin;
         HopCount = p.HopCount;
     }// cloner constuctor
-
-    // Method to increase the hopcount
-    public int AddHop(int H){
-        H = H + 1;
-        return H;
-    }// AddHop
 
 }// Packet Class

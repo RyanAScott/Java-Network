@@ -10,10 +10,9 @@ public class Router extends Packet {
     String Port4;
     String Port5;
 
-    // packet object (Packer p)
-        //I'll need to make a placeholder packet that'll get overwritten
-    Packet packet = new Packet("Placeholder", "Current", "Current", 0);
-    
+    // Packet variable
+    Packet packet;
+ 
     // Default Constructor *to prevent errors
     Router() {
 
@@ -28,14 +27,13 @@ public class Router extends Packet {
      * EastPort = EP
      * place = p
     */
-    Router(String name, String P1, String P2, String P3, String P4, String P5, Packet p){
-        RouterName = name;
-        Port1 = P1;
-        Port2 = P2;
-        Port3 = P3;
-        Port4 = P4;
-        Port5 = P5;
-        packet = p;
+    Router(String RouterName, String Port1, String Port2, String Port3, String Port4, String Port5){
+        this.RouterName = RouterName;
+        this.Port1 = Port1;
+        this.Port2 = Port2;
+        this.Port3 = Port3;
+        this.Port4 = Port4;
+        this.Port5 = Port5;
     }// main constuctor
     
 }// Router Call
