@@ -1,4 +1,4 @@
-public class Router extends Packet {
+public class Router {
     // Router Name
     String RouterName;
 
@@ -27,13 +27,14 @@ public class Router extends Packet {
      * EastPort = EP
      * place = p
     */
-    Router(String RouterName, String Port1, String Port2, String Port3, String Port4, String Port5){
+    Router(String RouterName){
         this.RouterName = RouterName;
-        this.Port1 = Port1;
-        this.Port2 = Port2;
-        this.Port3 = Port3;
-        this.Port4 = Port4;
-        this.Port5 = Port5;
     }// main constuctor
     
+    Packet forward(Packet packet){
+        // This will forward a packet to a router
+        this.packet = packet;
+        return packet;
+    }// forward
+
 }// Router Call
