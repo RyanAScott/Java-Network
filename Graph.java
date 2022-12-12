@@ -52,4 +52,89 @@ public class Graph {
             System.out.println();
         }// for
      }// print
+
+     public void DisplaybreadthFirstSearch(int src){
+        // Using a Queue
+        Queue<Integer> queue = new LinkedList<>(); // Queues are interfaces
+
+        // Using a Boolean type array to report if a Router has been visited
+        boolean[] visited = new boolean[matrix.length];
+
+        queue.offer(src);
+        visited[src] = true;
+
+        while(queue.size() != 0){
+            // removes element from the queue
+            src = queue.poll();
+
+            // Printing out Pulled Elements
+            System.out.println(routers.get(src).RouterName + " = visited");
+
+            // Look for any adjacent Neighbors
+            for(int i = 0; i < matrix[src].length; i++){
+                if(matrix[src][i] == 1 && !visited[i]){
+                    queue.offer(i);
+                    visited[i] = true;
+                }// 
+            }// for
+        }// while
+     }// DisplaybreadthFirstSearch
+
+     public void DisplaydepthFirstSearch(int src){
+        boolean[] visited = new boolean[matrix.length];
+        
+        // Calling Helper Function
+        DisplaydFSHelper(src, visited);
+    }// DisplaydepthFirstSearch
+
+    private void DisplaydFSHelper(int src, boolean[] visited){
+        // Is example uses a "Call Stack", rather than a stack
+        // "Call Stacks" are used in recusion
+
+        // Check if current node we're on is visited or not
+        if(visited[src]){
+            return;
+        }// if
+        else {
+            visited[src] = true;
+            System.out.println(routers.get(src).RouterName + " = visited");
+        }// else
+
+        // Iterate over this row
+        for(int i = 0; i < matrix[src].length; i++){
+            if(matrix[src][i] == 1){
+                DisplaydFSHelper(i, visited);
+            }// if
+        }// for
+        // if succuessfully ran through entire for loop, return:
+        return;
+    }// DisplaydFSHelper
+
+    public void breadthFirstSearch(int src, int dst){
+        // Using a Queue
+        Queue<Integer> queue = new LinkedList<>(); // Queues are interfaces
+
+        // Using a Boolean type array to report if a Router has been visited
+        boolean[] visited = new boolean[matrix.length];
+
+        queue.offer(src);
+        visited[src] = true;
+
+        while(queue.size() != 0){
+            // removes element from the queue
+            src = queue.poll();
+            System.out.println(src);
+
+            // Printing out Pulled Elements
+            //System.out.println(routers.get(src).RouterName + " = visited");
+
+            // Look for any adjacent Neighbors
+            for(int i = 0; i < matrix[src].length; i++){
+                if(matrix[src][i] == 1 && !visited[i]){
+                    queue.offer(i);
+                    visited[i] = true;
+                }// 
+            }// for
+        }// while
+     }// breadthFirstSearch
 }// Graph Class
